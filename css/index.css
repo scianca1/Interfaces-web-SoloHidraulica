@@ -1,0 +1,12 @@
+body{
+    background-color: rgba(37, 37, 37, 0.719);
+}
+.orden{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-orden{
+    background-color: aqua;
+    width: 700px;
+}
