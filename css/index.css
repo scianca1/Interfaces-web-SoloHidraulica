@@ -7,6 +7,68 @@ body{
     align-items: center;
 }
 .form-orden{
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    padding: 40px;
+    align-items: center;
+    margin-top: 150px;
     background-color: aqua;
-    width: 700px;
+    width: 550px;
+}
+.campoForm{
+    width: 250px;
+    margin-bottom: 3px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #000000c4;
+}
+.ImputForm{
+    text-align: center;
+    width: 250px;
+    height: 18px;
+    border: solid 1px rgb(88, 88, 88);
+    border-radius: 8px;
+    box-shadow: 2px 3px 3px 0px #525252;
+}
+.tituloForm{
+    margin: 0;
+    margin-bottom: 15px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.295);
+}
+.conteinerCampos{
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+}
+.inputPatente{
+    width:150px ;
+}
+.titulosSecciones{
+    /* margin:10pxpx; */
+   margin-bottom: 30px;   
+}
+.seccionForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    padding-bottom: 40px;
+    border-bottom: 0.5px solid rgba(119, 119, 119, 0.712);
+}
+.campoObligatorio{
+    color: red;
+}
+.btnagregarRepuestos{
+    width: 150px;
+    height: 30px;
+    margin:5px;
+    background-color: rgb(255, 255, 28);
+    border-radius: 12px;
+    box-shadow:  2px 3px 3px 0px #2b2b2b;
+    
+}
+.listaRepuestos{
+    background-color: bisque;
+    margin-top: 20px;
+    padding: 20px;
 }

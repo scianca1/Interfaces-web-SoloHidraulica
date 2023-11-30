@@ -10,8 +10,53 @@
 <body>
     <div class="orden">
         <form action="" class="form-orden">
-        .
-        </form>
+            <h1 class="tituloForm">Orden de trabajo</h1>
+            <p><span class="campoObligatorio">*</span> =Campos Obligatorios</p>
+            <div class="seccionForm">
+                <h2 class="titulosSecciones">Datos del Cliente</h2>
+                <div class="conteinerCampos">
+                    <label for="nombre" class="campoForm">NOMBRE DEL CLIENTE</label>
+                    <input type="text" class="ImputForm" >
+                </div>
+            </div>
+            <div class="seccionForm">
+                 <h2 class="titulosSecciones">Datos del Vehiculo</h2>
+                <div class="conteinerCampos">
+                    <label for="nombre" class="campoForm">PATENTE<span class="campoObligatorio">*</span></label>
+                    <input type="text" class="inputPatente ImputForm" maxlength="7">
+                </div>
+                <div class="conteinerCampos">
+                    <label for="nombre" class="campoForm">MODELO</label>
+                    <input type="text" class="ImputForm">
+                </div>
+                <div class="conteinerCampos">
+                    <label for="nombre" class="campoForm">AÑO</label>
+                    <input type="number" class="ImputForm">
+                </div>
+            </div>
+            <div class="seccionForm">
+               <h2 class="titulosSecciones">Informacion de la Reparacion</h2>
+               <div class="conteinerCampos">
+                <label for="nombre" class="campoForm">REPARACION<span class="campoObligatorio">*</span></label>
+                <input type="text" class="ImputForm" placeholder="Titulo breve Ej: Perdida reten valvula">
+            </div>
+               <div class="conteinerCampos">
+                   <label for="nombre" class="campoForm">Descripcion del Problema</label>
+                   <input type="text" class="ImputForm" placeholder="EJ: Cambiar todos los retenes si o si">
+               </div>
+               <div class="conteinerCampos">
+                   <label for="nombre" class="campoForm">Repuestos a cambiar</label>
+                   <input type="text" class="ImputForm">
+                   <button class="btnagregarRepuestos">Agregar repuesto</button>
+                   <div class="listaRepuestos">
+                    <h3>Lista de repuestos</h3>
+                    <ul>
+                        <li>Agregar repuesto</li>
+                    </ul>
+                   </div>
+               </div>
+           </div>
+            </form>
     </div>
 </body>
 </html>
