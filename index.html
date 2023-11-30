@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
     <title>Home</title>
+    <script src="js/index.js" type="text/javascript" ></script>
 </head>
 <body>
     <div class="orden">
@@ -46,15 +47,15 @@
                </div>
                <div class="conteinerCampos">
                    <label for="nombre" class="campoForm">Repuestos a cambiar</label>
-                   <input type="text" class="ImputForm">
-                   <button class="btnagregarRepuestos">Agregar repuesto</button>
-                   <div class="listaRepuestos">
+                   <input type="text" class="ImputForm" id="RepuestoACambiar">
+                </div>
+                <button class="btnagregarRepuestos" id="btnAgregarRepuesto">Agregar repuesto</button>
+                <div class="ContenedorListaRepuestos">
                     <h3>Lista de repuestos</h3>
-                    <ul>
+                    <ul id="ListaRepuestos" class="listaRepuestos">
                         <li>Agregar repuesto</li>
                     </ul>
-                   </div>
-               </div>
+                </div>
            </div>
             </form>
     </div>
