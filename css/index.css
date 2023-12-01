@@ -1,10 +1,11 @@
 body{
-    background-color: rgba(37, 37, 37, 0.719);
+    background-color: rgb(0 0 0 / 82%);
 }
 .orden{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 .form-orden{
     display: flex;
@@ -12,9 +13,11 @@ body{
     border-radius: 30px;
     padding: 40px;
     align-items: center;
-    margin-top: 150px;
-    background-color: aqua;
-    width: 550px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    background-color: #00ffff99;
+    width: 850px;
+    box-shadow: 5px 5px 8px 0px #000000;
 }
 .campoForm{
     width: 250px;
@@ -76,8 +79,11 @@ body{
     align-items: center;
     width: 300px;
     background-color: bisque;
-    margin-top: 20px;
+    margin-top: 5px;
     padding: 20px;
+    border-radius: 0px 20px 0px 20px;
+    border: 3px solid blue;
+    box-shadow: 5px 5px 8px 0px #000000;
 }
 .ContenedorListaRepuestos h3{
     margin-bottom: 0;
@@ -90,6 +96,7 @@ body{
     word-wrap: break-word;
     max-width: 200px;
     width: 200px;
+
 }
 .btnBorrarRepuesto{
     margin-left: 5px;
@@ -100,4 +107,25 @@ body{
 }
 .btnBorrarRepuesto:hover{
     background-color: rgb(255, 0, 0);
+}
+.inputACambiar{
+    margin-top:40px;
+}
+.GenerarPDF{
+    margin-top: 40px;
+    width: 200px;
+    height: 30px;
+    transition: transform 0.3s ease,color 0.3s ease;
+    border-radius: 6px;
+    border: solid 1px red;
+    cursor: pointer;
+    box-shadow: 3px 4px 0px 0px #00000093;    box-shadow: 3px 4px 9px 1px #00000061;
+}
+.GenerarPDF:hover{
+    transform: scale(1.2); /* Al hacer hover, agranda el botón en un 10% (1.1 veces) */
+    background-color: red;
+    box-shadow: 5px 5px 8px 0px #00000093;
+}
+.conjunto{
+    display: flex;
 }
