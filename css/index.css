@@ -51,20 +51,24 @@ body{
    margin-bottom: 30px;   
 }
 .seccionForm{
+    margin-top: 40px;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 400px;
     padding-bottom: 40px;
-    border-bottom: 0.5px solid rgba(119, 119, 119, 0.712);
+    border-left: 0.5px solid rgba(119, 119, 119, 0.952);
+    border-top: 0.5px solid rgba(119, 119, 119, 0.952);
 }
 .campoObligatorio{
     color: red;
 }
 .btnagregarRepuestos{
-    width: 150px;
-    height: 30px;
+    width: 70px;
+    height: 25px;
     margin:5px;
+    margin-top: 0;
     background-color: rgb(255, 255, 60);
     border-radius: 12px;
     box-shadow:  2px 3px 3px 0px #2b2b2b;
@@ -113,13 +117,15 @@ body{
 }
 .GenerarPDF{
     margin-top: 40px;
+    margin-left: 100px;
     width: 200px;
     height: 30px;
     transition: transform 0.3s ease,color 0.3s ease;
     border-radius: 6px;
-    border: solid 1px red;
+    border: solid 3px red;
     cursor: pointer;
     box-shadow: 3px 4px 0px 0px #00000093;    box-shadow: 3px 4px 9px 1px #00000061;
+    font-size:large;
 }
 .GenerarPDF:hover{
     transform: scale(1.2); /* Al hacer hover, agranda el botón en un 10% (1.1 veces) */
@@ -128,4 +134,19 @@ body{
 }
 .conjunto{
     display: flex;
+}
+.imputRepuestoAAcambiar{
+    
+    width: 170px;
+    height: 20px;
+}
+.inputDescripcion{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    height: 200px;
+    text-align:left;
+    overflow-wrap: break-word;
+    overflow-y: auto; /* Añade una barra de desplazamiento vertical si el contenido excede la altura */
+    white-space: pre-wrap; 
+    resize: none;
 }
