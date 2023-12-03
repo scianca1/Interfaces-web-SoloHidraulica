@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="css/index.css"> 
     <title>Home</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-    <!-- <script type="module">
-        import { jsPDF } from 'https://unpkg.com/jspdf@2.4.0/dist/jspdf.esm.min.mjs';
-    </script> -->
     
-    <!-- <script src="js/index.js" type="module"></script> -->
 </head>
 <body>
     <div class="orden">
@@ -27,7 +23,7 @@
                         <input type="text" class="ImputForm" id="nombreCliente">
                     </div>
                     <div class="conteinerCampos">
-                        <label for="nombre" class="campoForm">APELLIDO<span class="campoObligatorio">*</span></label>
+                        <label for="nombre" class="campoForm">APELLIDO</label>
                         <input type="text" class="ImputForm" id="apellidoCliente">
                     </div>
                 </div>
@@ -35,7 +31,7 @@
                     <h2 class="titulosSecciones">Datos del Vehiculo</h2>
                     <div class="conteinerCampos">
                         <label for="nombre" class="campoForm">PATENTE<span class="campoObligatorio">*</span></label>
-                        <input type="text" class="inputPatente ImputForm" maxlength="7" id="patente">
+                        <input type="text" class="inputPatente ImputForm" maxlength="7" id="patente" required>
                     </div>
                     <div class="conteinerCampos">
                         <label for="nombre" class="campoForm">MODELO</label>
@@ -53,13 +49,13 @@
                     <h2 class="titulosSecciones">Informacion de la Reparacion</h2>
                     <div class="conteinerCampos">
                         <label for="nombre" class="campoForm">REPARACION<span class="campoObligatorio">*</span></label>
-                        <input type="text" class="ImputForm" placeholder="Titulo breve Ej: Perdida reten valvula" id="TituloReparacion">
+                        <input type="text" class="ImputForm" placeholder="Titulo breve Ej: Perdida reten valvula" id="TituloReparacion" required>
                     </div>
                     <div class="conteinerCampos">
                         <label for="nombre" class="campoForm">Descripcion del Problema</label>
                         <textarea   class="ImputForm inputDescripcion" placeholder="EJ: Cambiar todos los retenes si o si" id="Descripcion"></textarea>
                     </div>
-                    <div class="conteinerCampos inputACambiar">
+                    <!-- <div class="conteinerCampos inputACambiar">
                         <label for="nombre" class="campoForm" >Repuestos a cambiar</label>
                         <div class="conjunto">
                             <input type="text" class="ImputForm imputRepuestoAAcambiar" id="RepuestoACambiar"  placeholder="Agregar Repuesto a la lista">
@@ -72,19 +68,19 @@
                         <ul id="ListaRepuestos" class="listaRepuestos">
                             <li>Agregar repuesto</li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="seccionForm">
                     <h2 class="titulosSecciones">Datos del generador</h2>
                     <div class="conteinerCampos">
                         <label for="nombre" class="campoForm">Nombre<span class="campoObligatorio">*</span></label>
-                        <select name="" id="nombreGenerador" class="ImputForm">
-                            <option value="Nico">Nico</option>
-                            <option value="Dani">Dani</option>
-                            <option value="Dani">Dani Papa</option>
+                        <select name="" id="nombreGenerador" class="ImputForm" required >
+                            <option value="Nicolas">Nicolas</option>
+                            <option value="Daniel">Daniel</option>
+                            <option value="Daniel papa">Daniel Papa</option>
                             <option value="kevin">kevin</option>
-                            <option value="Gonza">Gonza</option>
-                            <option value="Gonza">Lauta</option> 
+                            <option value="Gonzalo">Gonzalo</option>
+                            <option value="Lautaro">Lautaro</option> 
                         </select>
                         <button class="GenerarPDF" id="btnGenerarPDF">GENERAR PDF</button>
                     </div>
