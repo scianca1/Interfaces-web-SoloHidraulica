@@ -152,20 +152,59 @@ document.addEventListener("DOMContentLoaded",()=>{
 
                 
 
-
-
-
-
-
-
-
-
-
-
+                generarGarantia(patente,tituloReparacion,año,descripcion,mes,dia,minutos,horas);
                 // Guarda o descarga el PDF
                 doc.save(patente+'_O.pdf');
         }
     });
+    function generarGarantia(patente,tituloReparacion,año,descripcion,mes,dia,minutos,horas){
+        var doc = new jsPDF();
+
+        let tamanioTitulos= 14;
+        let tamanioDatos= 21;
+        doc.setDrawColor(255, 0, 0);
+        doc.setLineWidth(0.5); // Grosor en unidades
+        doc.line(15, 24, 190, 24); // (x1, y1, x2, y2)
+
+        doc.setFontSize(tamanioDatos);
+        doc.setTextColor(0, 0, 0);
+        doc.text(85, 20, 'GARANTIA');
+       
+
+
+        doc.text(100, 40, patente);
+        doc.setFontSize(tamanioTitulos);
+        doc.setTextColor(70, 68, 68);
+        // doc.setOpacity(opacidadTitulo);
+        doc.text(40, 40, `Patente: `);
+
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(tamanioTitulos);
+        doc.text(40, 50, 'Fecha:                                 '+dia+"/"+mes+"/"+año+"   hora:   "+horas+":"+minutos);
+ 
+       
+        doc.text(100, 60, tituloReparacion);
+
+        doc.setTextColor(70, 68, 68);
+        // doc.setOpacity(opacidadTitulo);
+        doc.text(40, 60, 'REPARACION:');
+        
+        doc.text(40, 70, 'DETALLE:');
+
+        // Ajusta la posición y el ancho máximo para el texto largo
+        doc.setTextColor(0, 0, 0);
+        let descripcionLines = doc.splitTextToSize(descripcion, 150);
+        let descriptionY = 80;
+
+        // Agrega cada línea de la descripción
+        descripcionLines.forEach((line) => {
+            doc.text(20, descriptionY, line);
+            descriptionY += 10; // Ajusta el espaciado entre líneas según sea necesario
+        });
+
+        doc.save(patente+'_G.pdf');
+
+    }
     btnAgregarRepuesto.addEventListener('click',(e)=>{
         e.preventDefault();
         let repuesto= RepuestoACambiar.value ;
