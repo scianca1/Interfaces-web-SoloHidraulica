@@ -7,24 +7,25 @@ document.addEventListener("DOMContentLoaded",()=>{
     let ListaULRepuestos= document.getElementById("ListaRepuestos");
     let RepuestoACambiar= document.getElementById("RepuestoACambiar");
     let GenerarPDF= document.getElementById("btnGenerarPDF");
+    let GenerarGarantia=document.getElementById("btnGenerarGarantia");
     let listarepuestos1=[];
+
+    let eNombreCliente= document.getElementById('nombreCliente');
+    let eApellidoCliente= document.getElementById('apellidoCliente');
+    let ePatente= document.getElementById('patente');
+    let eModelo=document.getElementById('modelo');
+    let eAnio= document.getElementById('anio');
+    let eTituloReparacion=document.getElementById('TituloReparacion');
+    let eDescripcion=document.getElementById('Descripcion');
+    let eRepuestos=document.querySelectorAll('.liDeRepuestos');
+    let eNombreGenerador=document.getElementById('nombreGenerador');
 
     //imputs del formulario 
 
  
 
     GenerarPDF.addEventListener("click",(e)=>{
-        // e.preventDefault();
-        
-            let eNombreCliente= document.getElementById('nombreCliente');
-            let eApellidoCliente= document.getElementById('apellidoCliente');
-            let ePatente= document.getElementById('patente');
-            let eModelo=document.getElementById('modelo');
-            let eAnio= document.getElementById('anio');
-            let eTituloReparacion=document.getElementById('TituloReparacion');
-            let eDescripcion=document.getElementById('Descripcion');
-            let eRepuestos=document.querySelectorAll('.liDeRepuestos');
-            let eNombreGenerador=document.getElementById('nombreGenerador');
+        e.preventDefault();
 
             var doc = new jsPDF();
             // Obtén los valores de los campos del formulario
@@ -150,73 +151,110 @@ document.addEventListener("DOMContentLoaded",()=>{
                     descriptionY += 10; // Ajusta el espaciado entre líneas según sea necesario
                 });
 
-                
+                doc.setFontSize(tamanioTitulos);
+                doc.setTextColor(250, 0, 0);
+                doc.setFont("helvetica", "bold");
+                doc.text(150, 7, 'SoloHidraulica');
 
-                generarGarantia(patente,tituloReparacion,año,descripcion,mes,dia,minutos,horas);
                 // Guarda o descarga el PDF
+
                 doc.save(patente+'_O.pdf');
         }
     });
-    function generarGarantia(patente,tituloReparacion,año,descripcion,mes,dia,minutos,horas){
-        var doc = new jsPDF();
+    GenerarGarantia.addEventListener("click",(e)=>{
+       e.preventDefault();
+       var doc = new jsPDF();
+        // Obtén los valores de los campos del formulario
+        let patente= ePatente.value;
+        let tituloReparacion=eTituloReparacion.value;
+        let descripcion=eDescripcion.value;
+        if(patente!=""&&tituloReparacion!=""){
 
-        let tamanioTitulos= 14;
-        let tamanioDatos= 21;
-        doc.setDrawColor(255, 0, 0);
-        doc.setLineWidth(0.5); // Grosor en unidades
-        doc.line(15, 24, 190, 24); // (x1, y1, x2, y2)
+            //valores de textos 
+            
+            let tamanioTitulos= 14;
+            let tamanioDatos= 21;
 
-        doc.setFontSize(tamanioDatos);
-        doc.setTextColor(0, 0, 0);
-        doc.text(85, 20, 'GARANTIA');
-       
+            // Crear un nuevo objeto de fecha
+            var fechaActual = new Date();
 
+            // Obtener los componentes de la fecha
+            var año = fechaActual.getFullYear();
+            var mes = fechaActual.getMonth() + 1; // Los meses van de 0 a 11, así que sumamos 1
+            var dia = fechaActual.getDate();
+            var horas = fechaActual.getHours();
+            var minutos = fechaActual.getMinutes();
 
-        doc.text(100, 40, patente);
-        doc.setFontSize(tamanioTitulos);
-        doc.setTextColor(70, 68, 68);
-        // doc.setOpacity(opacidadTitulo);
-        doc.text(40, 40, `Patente: `);
+            
+            // Especifica la ruta de tu imagen local
+            // var imagePath = '../imgs/logo_2.png';
 
-        doc.setTextColor(0, 0, 0);
-        doc.setFontSize(tamanioTitulos);
-        doc.text(40, 50, 'Fecha:                                 '+dia+"/"+mes+"/"+año+"   hora:   "+horas+":"+minutos);
- 
-       
-        doc.text(100, 60, tituloReparacion);
+            // Agrega la imagen al PDF
+            // doc.addImage(imagePath, 'PNG', 10, 10, 50, 50);
+           
 
-        doc.setTextColor(70, 68, 68);
-        // doc.setOpacity(opacidadTitulo);
-        doc.text(40, 60, 'REPARACION:');
+            doc.setDrawColor(255, 0, 0);
+            doc.setLineWidth(0.5); // Grosor en unidades
+            doc.line(15, 24, 190, 24); // (x1, y1, x2, y2)
+
+                
+            doc.setFontSize(tamanioDatos);
+            doc.setTextColor(0, 0, 0);
+            doc.text(85, 20, 'GARANTIA');
         
-        doc.text(40, 70, 'DETALLE:');
 
-        // Ajusta la posición y el ancho máximo para el texto largo
-        doc.setTextColor(0, 0, 0);
-        let descripcionLines = doc.splitTextToSize(descripcion, 150);
-        let descriptionY = 80;
 
-        // Agrega cada línea de la descripción
-        descripcionLines.forEach((line) => {
-            doc.text(20, descriptionY, line);
-            descriptionY += 10; // Ajusta el espaciado entre líneas según sea necesario
-        });
+            doc.text(100, 40, patente);
+            doc.setFontSize(tamanioTitulos);
+            doc.setTextColor(70, 68, 68);
+            // doc.setOpacity(opacidadTitulo);
+            doc.text(40, 40, `Patente: `);
+            doc.text(40, 50, `Fecha:`);
 
-        doc.save(patente+'_G.pdf');
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(tamanioTitulos);
+            doc.text(40, 50, '     :                                    '+dia+"/"+mes+"/"+año+"   hora: "+horas+":"+minutos);
+    
+        
+            doc.text(100, 60, tituloReparacion);
 
-    }
-    btnAgregarRepuesto.addEventListener('click',(e)=>{
-        e.preventDefault();
-        let repuesto= RepuestoACambiar.value ;
-        if(!repuesto ==''){
-            listarepuestos1.push(repuesto);
-            ListaULRepuestos.innerHTML=``;
-                listarepuestos1.forEach(repuestoL => {
-                    ListaULRepuestos.innerHTML+=`<div class="contenedorRepuesto"><li class="liDeRepuestos">`+repuestoL+`</li><button class="btnBorrarRepuesto" id="`+listarepuestos1.indexOf(repuestoL)+`">Borrar</button></div>`;
-                });
-                asignarEventosABotones();
+            doc.setTextColor(70, 68, 68);
+            // doc.setOpacity(opacidadTitulo);
+            doc.text(40, 60, 'REPARACION:');
+            
+            doc.text(40, 70, 'DETALLE:');
+
+            // Ajusta la posición y el ancho máximo para el texto largo
+            doc.setTextColor(0, 0, 0);
+            let descripcionLines = doc.splitTextToSize(descripcion, 150);
+            let descriptionY = 80;
+
+            // Agrega cada línea de la descripción
+            descripcionLines.forEach((line) => {
+                doc.text(20, descriptionY, line);
+                descriptionY += 10; // Ajusta el espaciado entre líneas según sea necesario
+            });
+            
+            doc.setFontSize(tamanioDatos);
+            doc.setTextColor(250, 0, 0);
+            doc.setFont("helvetica", "bold");
+            doc.text(150, 10, 'SoloHidraulica');
+
+            doc.save(patente+'_G.pdf');
         }
-    })
+    });
+    // btnAgregarRepuesto.addEventListener('click',(e)=>{
+    //     e.preventDefault();
+    //     let repuesto= RepuestoACambiar.value ;
+    //     if(!repuesto ==''){
+    //         listarepuestos1.push(repuesto);
+    //         ListaULRepuestos.innerHTML=``;
+    //             listarepuestos1.forEach(repuestoL => {
+    //                 ListaULRepuestos.innerHTML+=`<div class="contenedorRepuesto"><li class="liDeRepuestos">`+repuestoL+`</li><button class="btnBorrarRepuesto" id="`+listarepuestos1.indexOf(repuestoL)+`">Borrar</button></div>`;
+    //             });
+    //             asignarEventosABotones();
+    //     }
+    // })
     function asignarEventosABotones() {
         let botones= document.querySelectorAll(".btnBorrarRepuesto");
         botones.forEach(boton=>{
